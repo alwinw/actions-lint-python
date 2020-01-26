@@ -13,3 +13,5 @@ jobs:
           root-dir-list: |
             test1
             test2
+          packages:
+            black

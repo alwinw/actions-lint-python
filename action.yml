@@ -5,6 +5,16 @@ inputs:
     description: "List of directories to test"
     required: false
     default: "."
+  packages:
+    description: "List of packages to be used for formatting and linting"
+    required: false
+    default: |
+      black
+      pycodestyle
+      flake8
+      pylint
+      isort
+      mypy
 
 runs:
   using: "docker"
