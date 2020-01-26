@@ -2,29 +2,31 @@
 
 . ./src/utils.sh
 
-echo -e "\e[34m############################################################\e[39m"
-echo "Starting ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
-echo "Running $0"
-echo -e "\e[34m------------------------------------------------------------\e[39m"
+header_print
 
-
+DIRS=$1
 PACKAGES=$2
 MAX_LINE_LENGTH=$3
 
 SUPPORTED_PACKAGES="black pycodestyle flake8 pylint isort mypy"
+GLOBAL_RESULT=0
+LOCAL_RESULT=0
 for PACKAGE in $PACKAGES
 do
     case $SUPPORTED_PACKAGES in
         *${PACKAGE}*) 
-            pretty_print ${PACKAGE} -1
+            pretty_print $PACKAGE -1
             case $PACKAGE in
                 black)
                     black --version
+                    black $TEST --check --diff --line-length $MAX_LINE_LENGTH
+                    LOCAL_RESULT=$?
                     ;;
                 flake8)
                     flake8 --version
                     ;;
             esac
+            pretty_print $PACKAGE $LOCAL_RESULT
             ;;
         *)
             echo "$PACKAGE not supported!!"
@@ -34,7 +36,4 @@ do
     esac
 done
 
-echo -e "\n"
-echo -e "\e[34m------------------------------------------------------------\e[39m"
-echo "Completed ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
-echo -e "\e[34m############################################################\e[39m"
+footer_print
