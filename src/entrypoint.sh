@@ -30,25 +30,25 @@ echo "2 is $2"
 echo "3 is $3"
 echo "@ is $@"
 
+PACKAGES=$2
 MAX_LINE_LENGTH=$3
 
 echo "For loop testing"
 
-for PACKAGE in $2
+for PACKAGE in $PACKAGES
 do
     echo $PACKAGE
-    if [[ $PACKAGE == *"black"* ]]; then
-        echo "FOUND BLACK!"
-    fi
+    case "black pycodestyle flake8 pylint isort mypy" in
+        *${PACKAGE}*) 
+            echo "${PACKAGE} supported"
+            ;;
+        *)
+            echo "${PACKAGE} not supported!!"
+            pretty_print
+            exit 1
+            ;;
+    esac
 done
-
-if [[ "hi" == *"hi"* ]]; then
-    echo "FOUND HI!"
-fi
-
-if [[ "hi bye" == *"hi"* ]]; then
-    echo "FOUND HI!"
-fi
 
 PACKAGE=black
 
