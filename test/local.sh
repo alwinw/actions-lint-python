@@ -48,7 +48,9 @@ function pylint_test() {
     pretty_print $1 -1
     pylint --version
     pylint $TEST
-    # TO INVESTIGATED
+    PYLINT_RESULT=$?
+    print $PYLINT_RESULT
+    pretty_print $1 $PYLINT_RESULT
 }
 
 function isort_test() {
@@ -70,6 +72,6 @@ function mypy_test() {
 black_test "Black"
 pycodestyle_test "PyCodeStyle"
 flake8_test "Flake8"
-
+pylint_test "Pylint"
 isort_test "Isort"
 mypy_test "Mypy"
