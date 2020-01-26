@@ -5,7 +5,7 @@ function pretty_print() {
     then
         echo -e "\n"
         local MESSAGE="Running $1 Test"
-        local COLOUR=4
+        local COLOUR=6
         elif [[ $2 -eq 0 ]]; then
         local MESSAGE="$1 Test Passed!"
         local COLOUR=2
@@ -15,25 +15,25 @@ function pretty_print() {
     else
         echo -e "\n"
         local MESSAGE="$1"
-        local COLOUR=4
+        local COLOUR=6
     fi
-    echo -e "\e[7m\e[3${COLOUR}m##########       ${MESSAGE}       ##########\e[0m"
+    echo -e "\e[3${COLOUR}m##########     \e[4${COLOUR}m\e[30m ${MESSAGE} \e[49m     \e[3${COLOUR}m##########\e[0m"
 }
 
 function header_print() {
-    echo -e "\e[32m############################################################\e[0m"
-    echo -e "   Starting ${GITHUB_WORKFLOW}"
+    echo -e "\e[34m############################################################\e[0m"
+    echo -e "\e[1m   Starting ${GITHUB_WORKFLOW}\e[21m"
     echo -e "   From ${GITHUB_ACTION}"
     echo -e "   Running $0"
-    echo -e "\e[32m------------------------------------------------------------\e[0m"
+    echo -e "\e[34m------------------------------------------------------------\e[0m"
 }
 
 function footer_print() {
     echo -e "\n"
-    echo -e "\e[32m------------------------------------------------------------\e[0m"
-    echo -e "   Completed ${GITHUB_WORKFLOW}"
+    echo -e "\e[34m------------------------------------------------------------\e[0m"
+    echo -e "\e[1m   Completed ${GITHUB_WORKFLOW}\e[21m"
     echo -e "   From ${GITHUB_ACTION}"
-    echo -e "\e[32m############################################################\e[0m"
+    echo -e "\e[34m############################################################\e[0m"
     
 }
 
