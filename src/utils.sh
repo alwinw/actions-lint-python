@@ -21,16 +21,16 @@ function pretty_print() {
 }
 
 function header_print() {
-    echo -e "\e[34m############################################################\e[39m"
-    echo "Starting ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
-    echo "Running $0"
-    echo -e "\e[34m------------------------------------------------------------\e[39m"
+    echo -e "\e[31m############################################################\e[39m"
+    echo " Starting ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
+    echo " Running $0"
+    echo -e "\e[31m------------------------------------------------------------\e[39m"
 }
 
 function footer_print() {
     echo -e "\n"
-    echo -e "\e[34m------------------------------------------------------------\e[39m"
-    echo "Completed ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
-    echo -e "\e[34m############################################################\e[39m"
+    echo -e "\e[31m------------------------------------------------------------\e[39m"
+    echo " Completed ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
+    echo -e "\e[31m############################################################\e[39m"
     
 }

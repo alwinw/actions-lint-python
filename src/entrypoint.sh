@@ -19,7 +19,7 @@ do
             case $PACKAGE in
                 black)
                     black --version
-                    black $TEST --check --diff --line-length $MAX_LINE_LENGTH
+                    black $DIRS --check --diff --line-length $MAX_LINE_LENGTH
                     LOCAL_RESULT=$?
                     ;;
                 flake8)
