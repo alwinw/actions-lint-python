@@ -20,7 +20,8 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.python-root-dir-list }}
+    - ${{ inputs.root-dir-list }}
+    - ${{ inputs.packages}}
 
 branding:
   color: "blue"
