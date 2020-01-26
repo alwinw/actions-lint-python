@@ -10,10 +10,10 @@ function pretty_print() {
         echo -e "\n"
         local MESSAGE="Running ${1} Test"
         local COLOUR=4
-    elif [[ $2 -eq 0 ]]; then
+        elif [[ $2 -eq 0 ]]; then
         local MESSAGE="${1} Test Passed!"
         local COLOUR=2
-    elif [[ $2 -eq 1 ]]; then
+        elif [[ $2 -eq 1 ]]; then
         local MESSAGE="${1} Test Failed!"
         local COLOUR=1
     fi
@@ -21,15 +21,9 @@ function pretty_print() {
 }
 
 function black_test() {
-    # Info
     pretty_print $1 -1
     black --version
-    # Try
-    (
-        set -e
-        black $TEST --check --line-length $MAX_LINE_LENGTH
-    )
-    # Catch
+    black $TEST --check --line-length $MAX_LINE_LENGTH
     BLACK_RESULT=$?
     if [[ $BLACK_RESULT -ne 0 ]]; then
         black $TEST --diff --line-length $MAX_LINE_LENGTH
@@ -38,15 +32,9 @@ function black_test() {
 }
 
 function pycodestyle_test() {
-    # Info
     pretty_print $1 -1
     pycodestyle --version
-    # Try
-    (
-        set -e
-        pycodestyle $TEST
-    )
-    # Catch
+    pycodestyle $TEST
     PCS_RESULT=$?
     if [[ $PCS_RESULT -ne 0 ]]; then
         pycodestyle $TEST --statistics
@@ -55,15 +43,9 @@ function pycodestyle_test() {
 }
 
 function flake8_test() {
-    # Info
     pretty_print $1 -1
     flake8 --version
-    # Try
-    (
-        set -e
-        flake8 $TEST --max-line-length=$MAX_LINE_LENGTH
-    )
-    # Catch
+    flake8 $TEST --max-line-length=$MAX_LINE_LENGTH
     FLAKE_RESULT=$?
     if [[ $FLAKE_RESULT -ne 0 ]]; then
         flake8 $TEST
@@ -71,6 +53,38 @@ function flake8_test() {
     pretty_print $1 $FLAKE_RESULT
 }
 
+function pylint_test() {
+    pretty_print $1 -1
+    pylint --version
+    pylint $TEST 
+    # TO INVESTIGATED
+}
+
+function isort_test() {
+    pretty_print $1 -1
+    isort --version-number
+    isort $TEST --recursive --check-only
+    ISORT_RESULT=$?
+    if [[ $ISORT_RESULT -ne 0 ]]; then
+        isort $TEST --recursive --diff
+    fi
+    pretty_print $1 $ISORT_RESULT
+}
+
+function mypy_test() {
+    pretty_print $1 -1
+    mypy --version
+    mypy $TEST 
+    MYPY_RESULT=$?
+    if [[ $MYPY_RESULT -ne 0 ]]; then
+        mypy $TEST
+    fi
+    pretty_print $1 $MYPY_RESULT
+}
+
 black_test "Black"
 pycodestyle_test "PyCodeStyle"
 flake8_test "Flake8"
+
+isort_test "Isort"
+mypy_test "Mypy"
