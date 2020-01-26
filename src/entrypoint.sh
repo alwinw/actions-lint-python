@@ -31,14 +31,22 @@ echo "3 is $3"
 echo "@ is $@"
 
 MAX_LINE_LENGTH=$3
+
+
+for PACKAGE in $2
+do
+    echo $PACKAGE
+done
+
+
 PACKAGE=black
 
 case "$2" in *${PACKAGE}*)
-    pretty_print "Black" -1
+    pretty_print ${PACKAGE} -1
     black --version
     black $TEST --check --diff --line-length $MAX_LINE_LENGTH
     BLACK_RESULT=$?
-    pretty_print $1 $BLACK_RESULT
+    pretty_print ${PACKAGE} $BLACK_RESULT
     ;;
 esac
 
