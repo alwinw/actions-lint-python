@@ -11,7 +11,8 @@ echo "@ is $@"
 
 case "$2" in *black*)
     echo "Black!"
-fi
+    ;;
+esac
 
 echo -e "\e[34m############################################################\e[39m"
 echo "Completed ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
