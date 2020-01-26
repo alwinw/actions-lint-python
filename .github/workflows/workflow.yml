@@ -11,6 +11,4 @@ jobs:
       - uses: AlwinW/actions-lint-python@master
         with:
           root-dir-list: "."
-          packages: |
-            black
-            flake8
+          packages: black flake8
