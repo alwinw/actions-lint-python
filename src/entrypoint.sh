@@ -42,6 +42,13 @@ do
     fi
 done
 
+if [[ "hi" == *"hi"* ]]; then
+    echo "FOUND HI!"
+fi
+
+if [[ "hi bye" == *"hi"* ]]; then
+    echo "FOUND HI!"
+fi
 
 PACKAGE=black
 
