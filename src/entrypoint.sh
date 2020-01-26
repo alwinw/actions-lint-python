@@ -26,7 +26,8 @@ echo "Running $0"
 echo -e "\e[34m------------------------------------------------------------\e[39m"
 
 echo $PWD
-ls
+ls src
+. ./src/utils.sh
 
 PACKAGES=$2
 MAX_LINE_LENGTH=$3
@@ -39,10 +40,10 @@ do
             pretty_print ${PACKAGE} -1
             case $PACKAGE in
                 black)
-                    echo "Found black!"
+                    black --version
                     ;;
                 flake8)
-                    echo "Found flake8!"
+                    flake8 --version
                     ;;
             esac
             ;;
