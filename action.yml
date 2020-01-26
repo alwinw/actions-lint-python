@@ -1,7 +1,7 @@
 name: "Python Comprehensive Linting"
 description: "[DEV] Options for black, pycodestyle, flake8, pylint, isort and mypy"
 inputs:
-  python-root-dir-list:
+  root-dir-list:
     description: "List of directories to test"
     required: false
     default: "."
@@ -11,3 +11,7 @@ runs:
   image: "Dockerfile"
   args:
     - ${{ inputs.python-root-dir-list }}
+
+branding:
+  color: "blue"
+  icon: "check-circle"

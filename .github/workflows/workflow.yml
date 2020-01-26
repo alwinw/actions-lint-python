@@ -8,4 +8,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: AlwinW/action-lint-python@master
+      - uses: AlwinW/actions-lint-python@master
+        with:
+          root-dir-list: |
+            test1
+            test2
