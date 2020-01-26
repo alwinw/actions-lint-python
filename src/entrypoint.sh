@@ -9,7 +9,7 @@ echo "2 is $2"
 echo "3 is $3"
 echo "@ is $@"
 
-if [[ $2 == *"black"* ]]; then
+case "$2" in *black*)
     echo "Black!"
 fi
 
