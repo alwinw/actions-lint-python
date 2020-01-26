@@ -12,7 +12,7 @@ inputs:
   max-line-length:
     description: "Maximum line length of packages to use"
     required: false
-    default: 88
+    default: "88"
 
 runs:
   using: "docker"

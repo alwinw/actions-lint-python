@@ -25,27 +25,31 @@ echo "Starting ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
 echo "Running $0"
 echo -e "\e[34m------------------------------------------------------------\e[39m"
 
-echo "1 is $1"
-echo "2 is $2"
-echo "3 is $3"
-echo "@ is $@"
+echo $PWD
+ls
 
 PACKAGES=$2
 MAX_LINE_LENGTH=$3
 
-echo "For loop testing"
-
+SUPPORTED_PACKAGES="black pycodestyle flake8 pylint isort mypy"
 for PACKAGE in $PACKAGES
 do
-    echo $PACKAGE
-    case "black pycodestyle flake8 pylint isort mypy" in
+    case $SUPPORTED_PACKAGES in
         *${PACKAGE}*) 
-            echo "${PACKAGE} supported"
+            pretty_print ${PACKAGE} -1
+            case $PACKAGE in
+                black)
+                    echo "Found black!"
+                    ;;
+                flake8)
+                    echo "Found flake8!"
+                    ;;
+            esac
             ;;
         *)
-            echo "${PACKAGE} not supported!!"
+            echo "$PACKAGE not supported!!"
             pretty_print
-            exit 1
+            # exit 1
             ;;
     esac
 done
@@ -61,6 +65,7 @@ case "$2" in *${PACKAGE}*)
     ;;
 esac
 
-echo -e "\e[34m############################################################\e[39m"
-echo "Completed ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
+echo -e "\n"
 echo -e "\e[34m------------------------------------------------------------\e[39m"
+echo "Completed ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
+echo -e "\e[34m############################################################\e[39m"
