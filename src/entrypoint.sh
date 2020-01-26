@@ -10,9 +10,9 @@ echo "3 is $3"
 echo "@ is $@"
 
 # readarray -t PACKAGES<<< "$1"
-PACKAGES=["black", "flake8"]
+PACKAGES=("black" "flake8")
 
-for PACKAGE in $PACKAGES
+for PACKAGE in "${PACKAGES[@]}"
 do
     echo $PACKAGE
 done
