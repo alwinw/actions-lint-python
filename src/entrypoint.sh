@@ -1,8 +1,5 @@
 #!/bin/sh
-
 . ./src/utils.sh
-
-test_print
 
 header_print
 
