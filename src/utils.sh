@@ -17,14 +17,14 @@ function pretty_print() {
         local MESSAGE="$1"
         local COLOUR=4
     fi
-    echo -e "\e[3${COLOUR}m##########\e[39m     \e[4${COLOUR}m \e[30m${MESSAGE} \e[49m      \e[3${COLOUR}m##########\e[39m"
+    echo -e "\e[7m\e[3${COLOUR}m##########       ${MESSAGE}       ##########\e[0m"
 }
 
 function header_print() {
     echo -e "\e[32m############################################################\e[0m"
     echo -e "   Starting ${GITHUB_WORKFLOW}"
     echo -e "   From ${GITHUB_ACTION}"
-    echo -e " Running $0"
+    echo -e "   Running $0"
     echo -e "\e[32m------------------------------------------------------------\e[0m"
 }
 
