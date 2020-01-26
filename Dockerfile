@@ -12,9 +12,10 @@ LABEL "com.github.actions.repository"="https://github.com/AlwinW/action-lint-pyt
 LABEL "com.github.actions.homepage"="https://github.com/AlwinW/action-lint-python/"
 LABEL "com.github.actions.maintainer"="AlwinW <16846521+AlwinW@users.noreply.github.com>"
 
-ADD requirements.txt /requirements.txt
-ADD entrypoint.sh /entrypoint.sh
+COPY requirements.txt /requirements.txt
+COPY src /src
 
 RUN pip install -r requirements.txt
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /src/entrypoint.sh
+
 ENTRYPOINT [ "/entrypoint.sh" ]

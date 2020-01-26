@@ -15,12 +15,12 @@ Tools used
 - [isort](https://github.com/timothycrosley/isort) - *isort is a Python utility / library to sort imports alphabetically, and automatically separated into sections and by type.*
 - [mypy](https://github.com/python/mypy) - *Mypy is an optional static type checker for Python. You can add type hints (PEP 484) to your Python programs, and use mypy to type check them statically.*
 
-
 Options
 
 - Planned options to turn on/off tools used
 - Planned options to parse additional arguments such as line length or ignore certain rules
 - Options should be mapped to all tools used
+- Option to format or to check
 
 ## Requirements
 
@@ -32,12 +32,16 @@ Options
 
 ## References
 
-- [andymckay/pycodestyle-action](https://github.com/andymckay/pycodestyle-action)
-- [bulv1ne/python-style-check](https://github.com/bulv1ne/python-style-check)
-- [CyberZHG/github-action-python-lint](https://github.com/CyberZHG/github-action-python-lint)
-- [konstruktoid/action-pylint](https://github.com/konstruktoid/action-pylint)
-- [lgeiger/black-action](https://github.com/lgeiger/black-action)
-- [ricardochaves/python-lint](https://github.com/ricardochaves/python-lint)
-- [tayfun/flake8-your-pr](https://github.com/tayfun/flake8-your-pr)
-- [wemake-services/wemake-python-styleguide](https://github.com/wemake-services/wemake-python-styleguide)
-- [WhyNotHugo/python-linting](https://github.com/WhyNotHugo/python-linting)
+- [andymckay/pycodestyle-action](https://github.com/andymckay/pycodestyle-action) - pycodestyle
+- [bulv1ne/python-style-check](https://github.com/bulv1ne/python-style-check) - isorty, flake8, black
+- [CyberZHG/github-action-python-lint](https://github.com/CyberZHG/github-action-python-lint) - pycodestyle with args
+- [fylein/python-pylint-github-action](https://github.com/fylein/python-pylint-github-action) - pylint with args
+- [peter-evans/autopep8](https://github.com/peter-evans/autopep8) - autopep8 automatically formats and creates pull request
+- [konstruktoid/action-pylint](https://github.com/konstruktoid/action-pylint) - black, flake8 and tools
+- [lgeiger/black-action](https://github.com/lgeiger/black-action) - black with args
+- [lgeiger/pyflakes-action](https://github.com/lgeiger/pyflakes-action) - pyflakes
+- [ricardochaves/python-lint](https://github.com/ricardochaves/python-lint) - black, pylint, isort, pycodestyle, flake8, mypy
+- [tayfun/flake8-your-pr](https://github.com/tayfun/flake8-your-pr) - flake8 with annotations
+- [wemake-services/wemake-python-styleguide](https://github.com/wemake-services/wemake-python-styleguide) - wemake-python-styleguide
+- [WhyNotHugo/python-linting](https://github.com/WhyNotHugo/python-linting) - flake8
+- [wrboyce/python-lint-action](https://github.com/wrboyce/python-lint-action) - black, isort
