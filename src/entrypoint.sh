@@ -2,6 +2,8 @@
 
 . ./src/utils.sh
 
+test_print
+
 header_print
 
 DIRS=$1
