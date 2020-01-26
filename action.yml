@@ -8,13 +8,7 @@ inputs:
   packages:
     description: "List of packages to be used for formatting and linting"
     required: false
-    default: |
-      black
-      pycodestyle
-      flake8
-      pylint
-      isort
-      mypy
+    default: all
 
 runs:
   using: "docker"
