@@ -26,6 +26,7 @@ do
                     flake8 --version
                     ;;
             esac
+            GLOBAL_RESULT=$((GLOBAL_RESULT + LOCAL_RESULT))
             pretty_print $PACKAGE $LOCAL_RESULT
             ;;
         *)
@@ -35,5 +36,7 @@ do
             ;;
     esac
 done
+
+echo $GLOBAL_RESULT
 
 footer_print
