@@ -9,5 +9,12 @@ echo "2 is $2"
 echo "3 is $3"
 echo "@ is $@"
 
+readarray -t PACKAGES <<< "$1"
+
+for PACKAGE in $PACKAGES
+do
+    echo $PACKAGE
+done
+
 echo "#################################################"
 echo "Completed ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
