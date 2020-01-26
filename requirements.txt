@@ -1,0 +1,6 @@
+black==19.10b0
+pycodestyle==2.5.0
+flake8==3.7.9
+pylint==2.4.4
+isort==4.3.21
+mypy==0.761
