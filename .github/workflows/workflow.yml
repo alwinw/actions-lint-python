@@ -1,4 +1,4 @@
-name: Python lint
+name: Lint test python files
 
 on: [push]
 
