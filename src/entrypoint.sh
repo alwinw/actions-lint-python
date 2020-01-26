@@ -7,13 +7,19 @@ set -eax
 echo "#################################################"
 echo "Starting ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
 
-# Print version of each 
-isort --version-number
 
+
+# Black
 black --version
 
-flake8 --version
+
 
 
 echo "#################################################"
 echo "Completed ${GITHUB_WORKFLOW}:${GITHUB_ACTION}"
+
+
+# Print version of each 
+isort --version-number
+
+flake8 --version
