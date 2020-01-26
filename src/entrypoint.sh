@@ -32,10 +32,14 @@ echo "@ is $@"
 
 MAX_LINE_LENGTH=$3
 
+echo "For loop testing"
 
 for PACKAGE in $2
 do
     echo $PACKAGE
+    if [[ $PACKAGE == *"black"* ]]; then
+        echo "FOUND BLACK!"
+    fi
 done
 
 
