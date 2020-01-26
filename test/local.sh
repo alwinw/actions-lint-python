@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TEST=test/sample_good.py
+TEST=test
 
 MAX_LINE_LENGTH=120
 IGNORE_E=""
@@ -23,22 +23,16 @@ function pretty_print() {
 function black_test() {
     pretty_print $1 -1
     black --version
-    black $TEST --check --line-length $MAX_LINE_LENGTH
+    black $TEST --check --diff --line-length $MAX_LINE_LENGTH
     BLACK_RESULT=$?
-    if [[ $BLACK_RESULT -ne 0 ]]; then
-        black $TEST --diff --line-length $MAX_LINE_LENGTH
-    fi
     pretty_print $1 $BLACK_RESULT
 }
 
 function pycodestyle_test() {
     pretty_print $1 -1
     pycodestyle --version
-    pycodestyle $TEST
+    pycodestyle $TEST  --statistics --max-line-length $MAX_LINE_LENGTH
     PCS_RESULT=$?
-    if [[ $PCS_RESULT -ne 0 ]]; then
-        pycodestyle $TEST --statistics
-    fi
     pretty_print $1 $PCS_RESULT
 }
 
@@ -47,38 +41,29 @@ function flake8_test() {
     flake8 --version
     flake8 $TEST --max-line-length=$MAX_LINE_LENGTH
     FLAKE_RESULT=$?
-    if [[ $FLAKE_RESULT -ne 0 ]]; then
-        flake8 $TEST
-    fi
     pretty_print $1 $FLAKE_RESULT
 }
 
 function pylint_test() {
     pretty_print $1 -1
     pylint --version
-    pylint $TEST 
+    pylint $TEST
     # TO INVESTIGATED
 }
 
 function isort_test() {
     pretty_print $1 -1
     isort --version-number
-    isort $TEST --recursive --check-only
+    isort $TEST --recursive --check-only --diff
     ISORT_RESULT=$?
-    if [[ $ISORT_RESULT -ne 0 ]]; then
-        isort $TEST --recursive --diff
-    fi
     pretty_print $1 $ISORT_RESULT
 }
 
 function mypy_test() {
     pretty_print $1 -1
     mypy --version
-    mypy $TEST 
+    mypy $TEST --show-column-numbers
     MYPY_RESULT=$?
-    if [[ $MYPY_RESULT -ne 0 ]]; then
-        mypy $TEST
-    fi
     pretty_print $1 $MYPY_RESULT
 }
 
