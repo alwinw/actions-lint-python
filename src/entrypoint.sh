@@ -30,8 +30,11 @@ echo "2 is $2"
 echo "3 is $3"
 echo "@ is $@"
 
-case "$2" in *black*)
-    pretty_print $1 -1
+MAX_LINE_LENGTH=$3
+PACKAGE=black
+
+case "$2" in *${PACKAGE}*)
+    pretty_print "Black" -1
     black --version
     black $TEST --check --diff --line-length $MAX_LINE_LENGTH
     BLACK_RESULT=$?
