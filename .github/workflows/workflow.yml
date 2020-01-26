@@ -8,4 +8,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - uses: AlwinW/action-lint-python
+      - uses: AlwinW/action-lint-python@master
