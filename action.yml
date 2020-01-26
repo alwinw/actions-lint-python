@@ -8,7 +8,11 @@ inputs:
   packages:
     description: "List of packages to be used for formatting and linting"
     required: false
-    default: all
+    default: black flake8
+  max-line-length:
+    description: "Maximum line length of packages to use"
+    required: false
+    default: 88
 
 runs:
   using: "docker"
@@ -16,6 +20,7 @@ runs:
   args:
     - ${{ inputs.root-dir-list }}
     - ${{ inputs.packages}}
+    - ${{ inputs.max-line-length }}
 
 branding:
   color: "blue"

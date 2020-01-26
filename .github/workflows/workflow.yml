@@ -12,3 +12,4 @@ jobs:
         with:
           root-dir-list: "."
           packages: black flake8
+          max-line-length: 120
