@@ -17,11 +17,9 @@ with open("HISTORY.rst") as history_file:
 
 requirements = ["argparse"]  # pylint: disable=locally-disabled, invalid-name
 
-setup_requirements = [
-    "pytest-runner"]  # pylint: disable=locally-disabled, invalid-name
+setup_requirements = ["pytest-runner"]  # pylint: disable=locally-disabled, invalid-name
 
-test_requirements = [
-    "pytest>=3"]  # pylint: disable=locally-disabled, invalid-name
+test_requirements = ["pytest>=3"]  # pylint: disable=locally-disabled, invalid-name
 
 setup(
     author="Alwin Wang",
