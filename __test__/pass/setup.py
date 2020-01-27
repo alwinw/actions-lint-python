@@ -10,16 +10,16 @@
 from setuptools import find_packages, setup  # type: ignore
 
 with open("README.rst") as readme_file:
-    readme = readme_file.read()
+    readme = readme_file.read() # pylint: disable=locally-disabled, invalid-name
 
 with open("HISTORY.rst") as history_file:
-    history = history_file.read()
+    history = history_file.read() # pylint: disable=locally-disabled, invalid-name
 
-requirements = ["argparse"]
+requirements = ["argparse"] # pylint: disable=locally-disabled, invalid-name
 
-setup_requirements = ["pytest-runner"]
+setup_requirements = ["pytest-runner"] # pylint: disable=locally-disabled, invalid-name
 
-test_requirements = ["pytest>=3"]
+test_requirements = ["pytest>=3"] # pylint: disable=locally-disabled, invalid-name
 
 setup(
     author="Alwin Wang",
