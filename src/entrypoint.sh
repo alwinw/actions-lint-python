@@ -59,6 +59,7 @@ then
     footer_print
     exit 0
 else
+    echo $GLOBAL_RESULT
     git --no-pager diff
     footer_print
     exit 1
