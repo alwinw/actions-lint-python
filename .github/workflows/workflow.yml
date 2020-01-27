@@ -26,4 +26,9 @@ jobs:
         with:
           root-dir-list: "__test__"
           packages: black pycodestyle flake8 pylint isort mypy
+          max-line-length: 10
+        continue-on-error: true
+      - uses: AlwinW/actions-lint-python@master
+        with:
+          packages: black unknown
         continue-on-error: true

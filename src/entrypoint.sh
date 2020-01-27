@@ -44,6 +44,8 @@ do
             esac
             LOCAL_RESULT=$?
             GLOBAL_RESULT=$((GLOBAL_RESULT + LOCAL_RESULT))
+            echo RESULTS FOR DEGUGGING
+            echo $LOCAL_RESULT
             echo $GLOBAL_RESULT
             pretty_print $PACKAGE $LOCAL_RESULT
         ;;
