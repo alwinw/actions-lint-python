@@ -3,6 +3,8 @@
 
 header_print
 
+where git
+
 # INPUT ARSG
 DIRS=$1
 PACKAGES=$2
