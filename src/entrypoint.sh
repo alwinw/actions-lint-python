@@ -43,7 +43,7 @@ do
                     mypy $DIRS --show-column-numbers
             esac
             LOCAL_RESULT=$?
-            echo $(( LOCAL_RESULT < 1 ? LOCAL_RESULT : 1 ))
+            LOCAL_RESULT=$(( LOCAL_RESULT < 1 ? LOCAL_RESULT : 1 ))
             GLOBAL_RESULT=$((GLOBAL_RESULT + LOCAL_RESULT))
             pretty_print $PACKAGE $LOCAL_RESULT
         ;;
@@ -62,6 +62,7 @@ then
 else
     echo -e "\n"
     pretty_print "GLOBAL EXIT CODE IS $GLOBAL_RESULT" 2
+    echo -e "\e[36mLet's try fix some of these errors...\e[0m\n"
     
     for PACKAGE in $PACKAGES
     do
@@ -80,8 +81,8 @@ else
             ;;
         esac
     done
-    pretty_print "After auto formatting:" 2
-    echo -e "\n\e[36mGit diff is...\e[0m"
+    pretty_print "After auto formatting" 2
+    echo -e "\e[36mGit diff is...\e[0m\n"
     git --no-pager diff --color=always
     git reset --hard HEAD 
     footer_print
