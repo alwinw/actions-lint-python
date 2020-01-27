@@ -3,8 +3,6 @@
 
 header_print
 
-git --version
-
 # INPUT ARSG
 DIRS=$1
 PACKAGES=$2
@@ -45,12 +43,14 @@ do
                     mypy $DIRS --show-column-numbers
             esac
             LOCAL_RESULT=$?
+            echo $LOCAL_RESULT
             GLOBAL_RESULT=$((GLOBAL_RESULT + LOCAL_RESULT))
             pretty_print $PACKAGE $LOCAL_RESULT
         ;;
         *)
-            echo "$PACKAGE not supported!!"
-            pretty_print
+            echo -e "\n\n\e[31m\e[1m$PACKAGE not supported!!\e[0m"
+            echo "Only $SUPPORTED_PACKAGES supported"
+            break
             exit 1
         ;;
     esac
@@ -62,7 +62,7 @@ then
     exit 0
 else
     echo -e "\n"
-    echo -e "GLOBAL EXIT CODE IS $GLOBAL_RESULT"
+    pretty_print "GLOBAL EXIT CODE IS $GLOBAL_RESULT" 2
     
     for PACKAGE in $PACKAGES
     do
@@ -83,6 +83,7 @@ else
     done
     echo -e "\n\e[36Git diff is...\e[0m"
     git --no-pager diff
+    git --reset --hard HEAD
     footer_print
     exit 1
 fi
