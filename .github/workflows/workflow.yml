@@ -3,7 +3,7 @@ name: Lint test python files
 on: [push]
 
 jobs:
-  must-pass-lint:
+  must-pass-all:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
