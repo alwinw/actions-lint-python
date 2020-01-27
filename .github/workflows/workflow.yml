@@ -18,7 +18,7 @@ jobs:
           packages: black pycodestyle flake8
           max-line-length: 120
 
-  must-fail-all:
+  check-fail-all:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
