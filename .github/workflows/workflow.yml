@@ -26,6 +26,3 @@ jobs:
         with:
           root-dir-list: "__test__"
           packages: black pycodestyle flake8 pylint isort mypy
-          with:
-            max-line-length: 10
-      - continue-on-error: false
