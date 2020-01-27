@@ -49,8 +49,7 @@ do
         ;;
         *)
             echo -e "\n\n\e[31m\e[1m$PACKAGE not supported!!\e[0m"
-            echo "Only $SUPPORTED_PACKAGES supported"
-            break
+            echo "Supported packages are: $SUPPORTED_PACKAGES"
             exit 1
         ;;
     esac
@@ -82,8 +81,8 @@ else
         esac
     done
     echo -e "\n\e[36Git diff is...\e[0m"
-    git --no-pager diff
-    git --reset --hard HEAD
+    git --no-pager diff --color=always
+    git reset --hard HEAD
     footer_print
     exit 1
 fi
