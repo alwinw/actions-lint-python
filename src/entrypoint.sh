@@ -3,6 +3,8 @@
 
 header_print
 
+git --version
+
 # INPUT ARSG
 DIRS=$1
 PACKAGES=$2
