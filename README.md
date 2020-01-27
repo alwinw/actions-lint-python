@@ -30,6 +30,16 @@ Options
 
 - Consider adding [wemake-python-styleguide](https://github.com/wemake-services/wemake-python-styleguide)
 
+## Brief Version History
+
+### v0.1.0 Initial Release
+
+Summary: Basic functionality achieved
+
+- Usage and selection of black, pycodestyle, flake8, pylint, isort and mypy
+- Common max line length variable passed to packages
+- Basic test suite of pass and fail python code
+
 ## References
 
 - [andymckay/pycodestyle-action](https://github.com/andymckay/pycodestyle-action) - pycodestyle
