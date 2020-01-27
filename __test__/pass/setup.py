@@ -2,7 +2,12 @@
 
 """The setup script."""
 
-from setuptools import find_packages, setup
+# https://mypy.readthedocs.io/en/latest/running_mypy.html#missing-imports
+# setuptools is missing even though it was merged in the past 
+#   https://github.com/python/typeshed/
+#   commit/c40da79e8fbb6dfb94d56210d5b35cf3cdf9d352?diff=unified
+
+from setuptools import find_packages, setup  # type: ignore
 
 with open("README.rst") as readme_file:
     readme = readme_file.read()
