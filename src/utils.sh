@@ -1,5 +1,30 @@
 #!/bin/sh
 
+function loop_packages() {
+    FUNCTION=$1
+    PACKAGES=$2
+    SUPPORTED_PACKAGES=$3
+    GLOBAL_RESULT=$4
+    for PACKAGE in $PACKAGES
+    do
+        case $SUPPORTED_PACKAGES in
+            *${PACKAGE}*)
+                pretty_print $PACKAGE -1
+                $FUNCTION
+                LOCAL_RESULT=$?
+                GLOBAL_RESULT=$((GLOBAL_RESULT + LOCAL_RESULT))
+                pretty_print $PACKAGE $LOCAL_RESULT
+            ;;
+            *)
+                echo "$PACKAGE not supported!!"
+                pretty_print
+                exit 1
+            ;;
+        esac
+    done
+}
+
+
 function pretty_print() {
     if [[ $2 -eq -1 ]]
     then
@@ -40,7 +65,7 @@ function footer_print() {
 function test_print() {
     echo Current terminal: $TERM
     echo $PWD
-
+    
     echo -e "Normal \e[1mBold\e[0m"
     echo -e "Normal \e[2mDim\e[0m"
     echo -e "Normal \e[4mUnderlined\e[0m"
