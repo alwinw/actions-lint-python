@@ -29,6 +29,7 @@ Options
 ## To do
 
 - Consider adding [wemake-python-styleguide](https://github.com/wemake-services/wemake-python-styleguide)
+- Consider adding [yapf](https://github.com/google/yapf)
 
 ## Brief Version History
 

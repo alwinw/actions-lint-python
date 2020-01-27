@@ -61,7 +61,27 @@ then
     footer_print
     exit 0
 else
-    echo $GLOBAL_RESULT
+    echo -e "\n"
+    echo -e "GLOBAL EXIT CODE IS $GLOBAL_RESULT"
+    
+    for PACKAGE in $PACKAGES
+    do
+        case $PACKAGE in
+            isort)
+                echo "\n\e[36mFormatting with isort...\e[0m"
+                isort $DIRS
+            ;;
+            flake8)
+                echo "\n\e[36mFormatting with autopep8...\e[0m"
+                autopep8 $DIRS
+            ;;
+            black)
+                echo -e "\n\e[36mFormatting with black...\e[0m"
+                black $DIRS
+            ;;
+        esac
+    done
+    echo -e "\n\e[36Git diff is...\e[0m"
     git --no-pager diff
     footer_print
     exit 1
