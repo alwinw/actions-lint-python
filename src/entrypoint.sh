@@ -43,7 +43,7 @@ do
                     mypy $DIRS --show-column-numbers
             esac
             LOCAL_RESULT=$?
-            echo $LOCAL_RESULT
+            echo $(( LOCAL_RESULT < 1 ? LOCAL_RESULT : 1 ))
             GLOBAL_RESULT=$((GLOBAL_RESULT + LOCAL_RESULT))
             pretty_print $PACKAGE $LOCAL_RESULT
         ;;
@@ -80,9 +80,10 @@ else
             ;;
         esac
     done
-    echo -e "\n\e[36Git diff is...\e[0m"
+    pretty_print "After auto formatting:" 2
+    echo -e "\n\e[36mGit diff is...\e[0m"
     git --no-pager diff --color=always
-    git reset --hard HEAD
+    git reset --hard HEAD 
     footer_print
     exit 1
 fi
