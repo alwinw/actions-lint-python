@@ -48,7 +48,7 @@ do
             pretty_print $PACKAGE $LOCAL_RESULT
         ;;
         *)
-            echo -e "\n\n\e[31m\e[1m$PACKAGE not supported!!\e[0m"
+            echo -e "\n\n\e[31m\e[1m\"$PACKAGE\" is not supported!!\e[0m"
             echo "Supported packages are: $SUPPORTED_PACKAGES"
             exit 1
         ;;

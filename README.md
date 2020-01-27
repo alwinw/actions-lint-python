@@ -24,7 +24,7 @@ Options
 
 ## Requirements
 
-- Python 3.7+
+- Python 3
 
 ## To do
 
@@ -40,6 +40,14 @@ Summary: Basic functionality achieved
 - Usage and selection of black, pycodestyle, flake8, pylint, isort and mypy
 - Common max line length variable passed to packages
 - Basic test suite of pass and fail python code
+
+### v0.2.0 Git Diff Added
+
+Summary: Git functionality added
+
+- Runs an auto formatter on the code if errors found
+- Reports the errors back via git diff
+- Fixed exit code bug if exit code > 1 for pretty_print
 
 ## References
 
