@@ -21,9 +21,9 @@ jobs:
   must-fail-all:
     runs-on: ubuntu-latest
     steps:
-      - continue-on-error: true
       - uses: actions/checkout@v2
       - uses: AlwinW/actions-lint-python@master
         with:
           root-dir-list: "__test__"
           packages: black pycodestyle flake8 pylint isort mypy
+        continue-on-error: true
