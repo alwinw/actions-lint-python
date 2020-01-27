@@ -21,6 +21,7 @@ jobs:
   must-fail-all:
     runs-on: ubuntu-latest
     steps:
+      - continue-on-error: true
       - uses: actions/checkout@v2
       - uses: AlwinW/actions-lint-python@master
         with:
