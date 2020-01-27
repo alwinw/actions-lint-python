@@ -60,7 +60,7 @@ then
     exit 0
 else
     echo $GLOBAL_RESULT
-    git --no-pager diff
+    # git --no-pager diff
     footer_print
     exit 1
 fi
